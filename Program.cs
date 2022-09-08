@@ -1,8 +1,25 @@
-﻿using Emgu.CV;
-using Emgu.CV.Structure;
+﻿using System;
+using Emgu.CV;
+using Emgu.CV.Dnn;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
+using System.Runtime.InteropServices;
+using System.Text;
+using Emgu.CV.Cuda;
+using Emgu.CV.CvEnum;
+using Emgu.Util;
 
-var image = new Image<Bgr, Byte>(200, 200);
-image.Save("aa.png");
-var a = CvInvoke.Imread("aa.png");
 
-Console.WriteLine("hello world");
+namespace HelloWorld
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            HelloWorld.Print();
+            var text = OcrUtils.GetText("test.png");
+            System.Console.WriteLine(text);
+        }
+    }
+}
